@@ -15,18 +15,20 @@ body {
 header {
     background-color: #222;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     position: relative;
+    height:150px;
 }
 
 header h1 {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     font-size: 36px;
     color: white;
     font-weight: bold;
+    transform: translateY(-20%);
 }
 
 header .logo {
@@ -39,8 +41,10 @@ nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    justify-content: right;
+    transform: translateY(-600%);
+    text-decoration: underline;
+    font-size: 20px;
 }
 
 nav ul li {
@@ -55,7 +59,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ddd;
+    color: grey;
 }
 
 .menu-icon {
@@ -191,6 +195,7 @@ tr:hover {
     box-sizing: border-box; 
 }
 
+/* Go Up Button */
 .go-up-button {
     position: fixed;
     bottom: 20px; /* Distance from the bottom of the page */
@@ -207,8 +212,9 @@ tr:hover {
     font-size: 24px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0;
+    opacity: 0; /* Start as invisible */
     transition: opacity 0.3s ease;
+    z-index: 1000;
 }
 
 .go-up-button:hover {
@@ -216,7 +222,7 @@ tr:hover {
 }
 
 .go-up-button.show {
-    opacity: 1;
+    opacity: 1; /* Make visible */
 }
 
 

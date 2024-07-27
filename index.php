@@ -47,7 +47,7 @@ $conn->close();
 <body>
     <header>
         <h1>
-            <img src="mgroup.png" alt="mgroup" class="logo">
+            <img src="logo.png" alt="mgroup" class="logo">
             WELCOME TO MGROUP!
         </h1>
         <nav>
@@ -140,7 +140,7 @@ $conn->close();
             width="100%" height="100vh" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
     
-    <h2>Near By</h2>
+    <h2>Nearby</h2>
     <div class="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -205,52 +205,6 @@ $conn->close();
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const indicators = document.querySelectorAll('.indicator');
-            const carouselInner = document.querySelector('.carousel-inner');
-            let activeIndex = 0;
-
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    indicators[activeIndex].classList.remove('active');
-                    indicator.classList.add('active');
-                    carouselInner.style.transform = `translateX(-${index * 100}%)`;
-                    activeIndex = index;
-                });
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const indicators = document.querySelectorAll('.indicator');
-            const carouselInner = document.querySelector('.carousel-inner');
-            let activeIndex = 0;
-
-            // Function to change the active slide
-            const changeSlide = (index) => {
-                indicators[activeIndex].classList.remove('active');
-                indicators[index].classList.add('active');
-                carouselInner.style.transform = `translateX(-${index * 100}%)`;
-                activeIndex = index;
-            };
-
-            // Event listener for indicators
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    changeSlide(index);
-                });
-            });
-
-            // Set an interval to automatically change slides
-            const intervalTime = 2000; // Time in milliseconds
-            setInterval(() => {
-                const nextIndex = (activeIndex + 1) % indicators.length;
-                changeSlide(nextIndex);
-            }, intervalTime);
-        });
-
-    </script>
-
     <section class="message">
         <h2>Get In Touch</h2>
         <p>We'd love to hear from you!</p>
@@ -278,26 +232,7 @@ $conn->close();
     </section>
 
     <button id="goUpButton" class="go-up-button" title="Go to Top">⤴</button>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const goUpButton = document.getElementById("goUpButton");
-
-            // Show the button when scrolled down 100px from the top
-            window.addEventListener("scroll", function() {
-                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                    goUpButton.style.display = "block";
-                } else {
-                    goUpButton.style.display = "none";
-                }
-            });
-
-            // Scroll to top when the button is clicked
-            goUpButton.addEventListener("click", function() {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-        });
-    </script>
+    <script src="index.js"></script>
 
     <footer>
         <p>&copy; MGROUP PROPERTY. ALL RIGHTS RESERVED.</p>

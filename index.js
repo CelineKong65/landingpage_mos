@@ -1,30 +1,43 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
-    const menuIcon = document.getElementById("menu-icon");
-    const navbar = document.getElementById("navbar");
+document.addEventListener("DOMContentLoaded", function () {
+    const goUpButton = document.getElementById("goUpButton");
 
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
+    // Show the button when scrolled down 100px from the top
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 100) {
+            goUpButton.classList.add("show"); // Add the 'show' class
+        } else {
+            goUpButton.classList.remove("show"); // Remove the 'show' class
+        }
+    });
 
-        const formData = new FormData(form);
+    // Scroll to top when the button is clicked
+    goUpButton.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-        fetch("contact.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            formMessage.textContent = data;
-            form.reset();
-        })
-        .catch(error => {
-            formMessage.textContent = "An error occurred. Please try again.";
-            console.error("Error:", error);
+    // Carousel functionality
+    const carousel = document.querySelector(".carousel-inner");
+    const indicators = document.querySelectorAll(".indicator");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        carousel.style.transform = `translateX(${-index * 100}%)`;
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle("active", i === index);
+        });
+    }
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+            showSlide(index);
+            currentIndex = index;
         });
     });
 
-    menuIcon.addEventListener("click", function() {
-        navbar.querySelector("ul").classList.toggle("active");
-    });
+    function autoSlide() {
+        currentIndex = (currentIndex + 1) % indicators.length;
+        showSlide(currentIndex);
+    }
+
+    setInterval(autoSlide, 3000); // Change slide every 3 seconds
 });
