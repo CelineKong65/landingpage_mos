@@ -47,7 +47,7 @@ $conn->close();
 <body>
     <header>
         <h1>
-            <img src="logo.png" alt="mgroup" class="logo">
+            <img src="MG Logo(White).png" alt="mgroup" class="logo">
             WELCOME TO MGROUP!
         </h1>
         <nav>

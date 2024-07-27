@@ -18,7 +18,7 @@ header {
     padding: 10px;
     text-align: center;
     position: relative;
-    height:150px;
+    height:125px;
 }
 
 header h1 {
@@ -28,11 +28,11 @@ header h1 {
     font-size: 36px;
     color: white;
     font-weight: bold;
-    transform: translateY(-20%);
+    transform: translateY(25%);
 }
 
 header .logo {
-    width: 250px;
+    width: 150px;
     height: auto;
     margin-right: 15px;
 }
@@ -42,9 +42,8 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: right;
-    transform: translateY(-600%);
-    text-decoration: underline;
     font-size: 20px;
+    transform: translateY(-90%);
 }
 
 nav ul li {
