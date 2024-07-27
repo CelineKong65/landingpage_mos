@@ -55,7 +55,7 @@ $conn->close();
                 <li><button class="nav-button" data-target="home">HOME</button></li>
                 <li><button class="nav-button" data-target="about">ABOUT</button></li>
                 <li><button class="nav-button" data-target="floor-plan">FLOOR PLAN</button></li>
-                <li><button class="nav-button" data-target="location">LOCATION</button></li>
+                <li class="li-button"><a href="https://www.google.com/maps/dir//7,+Jalan+KLJ+7+Melaka/@2.2002815,102.2313222,17z/data=!4m5!4m4!1m0!1m2!1m1!1s0x31d1f1b87a9cd181:0x87ad4504f6303956" class="link" data-target="location">LOCATION</a></li>
                 <li><button class="nav-button" data-target="contact">CONTACT US</button></li>
             </ul>
         </nav>
@@ -246,14 +246,19 @@ $conn->close();
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-        const navButtons = document.querySelectorAll(".nav-button");
-        const modal = document.getElementById("modalPopup");
-        const popupText = document.getElementById("popupText");
-        const closeModal = document.querySelector(".close");
+    const navButtons = document.querySelectorAll(".nav-button");
+    const modal = document.getElementById("modalPopup");
+    const popupText = document.getElementById("popupText");
+    const closeModal = document.querySelector(".close");
 
-        navButtons.forEach(button => {
+    navButtons.forEach(button => {
             button.addEventListener("click", function() {
                 const target = button.getAttribute("data-target");
+                if (target === 'location') {
+                    // Skip the popup logic for the 'location' button
+                    return;
+                }
+
                 switch (target) {
                     case 'home':
                         popupText.textContent = "Welcome to the Home Section!";
@@ -313,31 +318,23 @@ $conn->close();
                             <img src="floorplan.png" alt="Floor Plan" style="width: 100%; height: auto;">
                         `;
                         break;
-                    case 'location':
+                    case 'contact':
                         popupText.innerHTML = `
-                            <h2>Location</h2>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.888187809673!2d102.2313222!3d2.2002814999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1f1b87a9cd181%3A0x87ad4504f6303956!2s7%2C%20Jalan%20KLJ%207%2C%20Melaka!5e1!3m2!1szh-CN!2smy!4v1721979872629!5m2!1szh-CN!2smy"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <h2>Contact us for more information!</h2>
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="contact-form" id="contactForm">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+
+                                <label for="message">Message:</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+
+                                <button type="submit">Send Message</button>
+                            </form>
                         `;
                         break;
-                    case 'contact':
-                        case 'contact':
-                        popupText.innerHTML = `
-                        <h2>Contact us for more information!</h2>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="contact-form" id="contactForm">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required>
-
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
-
-                            <label for="message">Message:</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
-
-                            <button type="submit">Send Message</button>
-                        </form>
-                    `;
-                    break;
                 }
                 modal.style.display = "block";
             });
@@ -353,6 +350,7 @@ $conn->close();
             }
         }
     });
+
     </script>
 
 </body>

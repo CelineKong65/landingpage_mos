@@ -1,4 +1,4 @@
-/* Resetting default browser styles */
+/* General Reset for elements */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
@@ -12,13 +12,50 @@ body {
     text-align: center; 
 }
 
+/* Link Styling */
+li.li-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    padding: 10px 20px;
+    transform: translateY(0px);
+}
+
+.link:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+    transform: scale(1.05); /* Scale up the link slightly on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.link
+{
+    color: white;
+    text-decoration:none;
+    transform: scale(0.95); /* Scale down the link slightly on active */
+}
+
+.li-button:hover
+{
+    padding: 10px 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+
+
+/* Header Styling */
 header {
     background-color: #222;
     color: #fff;
     padding: 10px;
     text-align: center;
     position: relative;
-    height:125px;
+    height: 125px;
 }
 
 header h1 {
@@ -37,23 +74,7 @@ header .logo {
     margin-right: 15px;
 }
 
-nav {
-    display: flex;
-    justify-content: right; 
-    transform: translateY(-80%);
-}
-
-nav ul {
-    list-style: none; /* Remove default list styling */
-    display: flex; /* Arrange list items in a row */
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 0 5px; /* Add space between the buttons */
-}
-
+/* Modal Styling */
 .modal {
     display: none; 
     position: fixed;
@@ -90,8 +111,25 @@ nav ul li {
     cursor: pointer;
 }
 
-/* Button Styles */
-.nav-button {
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: right; 
+    transform: translateY(-80%);
+}
+
+nav ul {
+    list-style: none; /* Remove default list styling */
+    display: flex; /* Arrange list items in a row */
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 5px; /* Add space between the buttons */
+}
+
+nav ul li button.nav-button {
     background: none;
     border: none;
     color: inherit;
@@ -103,29 +141,12 @@ nav ul li {
     transition: background-color 0.3s;
 }
 
-.nav-button:hover {
+nav ul li button.nav-button:hover {
     background-color: #ddd;
     border-radius: 5px;
 }
 
-
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
-
-.menu-icon .bar {
-    width: 30px;
-    height: 4px;
-    background-color: #fff;
-    margin: 5px 0;
-    transition: 0.3s;
-}
-
+/* Main Styling */
 main {
     padding: 30px;
     text-align: center;
@@ -141,13 +162,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-.responsive-image {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-}
-
+/* Form Styling */
 form {
     max-width: 600px;
     margin: 20px auto;
@@ -184,13 +199,7 @@ form button:hover {
     background-color: #444;
 }
 
-#formMessage {
-    text-align: center;
-    margin-top: 100px;
-    font-size: 16px;
-    color: #666;
-}
-
+/* Table Section Styling */
 #table-section {
     text-align: center;
     padding: 30px;
@@ -226,7 +235,7 @@ tr:hover {
     background-color: #f1f1f1;
 }
 
-
+/* Map Section Styling */
 .map-section {
     position: relative;
     width: 100%;
@@ -242,7 +251,7 @@ tr:hover {
     box-sizing: border-box; 
 }
 
-/* Go Up Button */
+/* Go Up Button Styling */
 .go-up-button {
     position: fixed;
     bottom: 20px; /* Distance from the bottom of the page */
@@ -272,11 +281,7 @@ tr:hover {
     opacity: 1; /* Make visible */
 }
 
-
-body {
-    font-family: Arial, sans-serif;
-}
-
+/* Carousel Styling */
 .carousel {
     position: relative;
     width: 100%;
@@ -325,6 +330,7 @@ body {
     background-color: #333;
 }
 
+/* Footer Styling */
 footer {
     background-color: #222;
     color: #fff;
