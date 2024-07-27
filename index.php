@@ -52,11 +52,11 @@ $conn->close();
         </h1>
         <nav>
             <ul>
-                <li><a href="index.php">HOME</a></li>
-                <li><a href="#table-section">ABOUT</a></li>
-                <li><a href="#2">FLOOR PLAN</a></li>
-                <li><a href="#3">LOCATION</a></li>
-                <li><a href="#4">CONTACT US</a></li>
+                <li><button class="nav-button" data-target="home">HOME</button></li>
+                <li><button class="nav-button" data-target="about">ABOUT</button></li>
+                <li><button class="nav-button" data-target="floor-plan">FLOOR PLAN</button></li>
+                <li><button class="nav-button" data-target="location">LOCATION</button></li>
+                <li><button class="nav-button" data-target="contact">CONTACT US</button></li>
             </ul>
         </nav>
     </header>
@@ -184,8 +184,6 @@ $conn->close();
             </div><div class="carousel-item">
                 <img src="uniqlo.jpg" alt="Image 14">
             </div>
-            
-
         </div>
         <div class="carousel-indicators">
             <span class="indicator active" data-slide-to="0"></span>
@@ -237,5 +235,125 @@ $conn->close();
     <footer>
         <p>&copy; MGROUP PROPERTY. ALL RIGHTS RESERVED.</p>
     </footer>
+
+    <!-- Modal Popup Structure -->
+    <div id="modalPopup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="popupText"></p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const navButtons = document.querySelectorAll(".nav-button");
+        const modal = document.getElementById("modalPopup");
+        const popupText = document.getElementById("popupText");
+        const closeModal = document.querySelector(".close");
+
+        navButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const target = button.getAttribute("data-target");
+                switch (target) {
+                    case 'home':
+                        popupText.textContent = "Welcome to the Home Section!";
+                        break;
+                    case 'about':
+                        popupText.innerHTML = `
+                            <h2>About Melaka Old Street</h2>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Project Name</td>
+                                        <td>Melaka Old Street</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>Kota Laksamana, Melaka</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type of Property</td>
+                                        <td>3 Storey Shop Office</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bath / Bed</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tenure</td>
+                                        <td>Leasehold</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Expired on</td>
+                                        <td>2106</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Land Size / Built Up</td>
+                                        <td>22' x 70'</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Selling / Rental Price</td>
+                                        <td>RM 1,980,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Condition</td>
+                                        <td>New</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Advantages</td>
+                                        <td>✅Heritage concept design <br>✅Unique historical experience<br>✅A contemporary commercial hub at heart of Melaka<br>✅Avenue corner pathways connected by lighting lines fit for Instagram</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        `;
+                        break;
+                    case 'floor-plan':
+                        popupText.innerHTML = `
+                            <h2>Floor Plan</h2>
+                            <img src="floorplan.png" alt="Floor Plan" style="width: 100%; height: auto;">
+                        `;
+                        break;
+                    case 'location':
+                        popupText.innerHTML = `
+                            <h2>Location</h2>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.888187809673!2d102.2313222!3d2.2002814999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1f1b87a9cd181%3A0x87ad4504f6303956!2s7%2C%20Jalan%20KLJ%207%2C%20Melaka!5e1!3m2!1szh-CN!2smy!4v1721979872629!5m2!1szh-CN!2smy"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        `;
+                        break;
+                    case 'contact':
+                        case 'contact':
+                        popupText.innerHTML = `
+                        <h2>Contact us for more information!</h2>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="contact-form" id="contactForm">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+
+                            <button type="submit">Send Message</button>
+                        </form>
+                    `;
+                    break;
+                }
+                modal.style.display = "block";
+            });
+        });
+
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+    </script>
+
 </body>
 </html>
