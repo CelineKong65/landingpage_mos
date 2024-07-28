@@ -55,7 +55,7 @@ $conn->close();
                 <li><button class="nav-button" data-target="home">HOME</button></li>
                 <li><button class="nav-button" data-target="about">ABOUT</button></li>
                 <li><button class="nav-button" data-target="floor-plan">FLOOR PLAN</button></li>
-                <li class="li-button"><a href="https://www.google.com/maps/dir//7,+Jalan+KLJ+7+Melaka/@2.2002815,102.2313222,17z/data=!4m5!4m4!1m0!1m2!1m1!1s0x31d1f1b87a9cd181:0x87ad4504f6303956" class="link" data-target="location">LOCATION</a></li>
+                <li class="li-button"><a href="location.html" class="link" data-target="location">LOCATION</a></li>
                 <li><button class="nav-button" data-target="contact">CONTACT US</button></li>
             </ul>
         </nav>
