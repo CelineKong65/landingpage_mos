@@ -43,16 +43,49 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="index.css">
+    <style>
+    .infor{
+        background-color: white;
+        text-align: center;
+        padding: 15px 20px;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+    }
+    .tb-infor {
+        width: 500px;
+        border-collapse: collapse; 
+        color: black;
+        margin: 0 auto; 
+        background-color: white;
+        text-align: center; 
+    }
+
+    .tb-infor td, .tb-infor th {
+        padding: 10px; 
+        border: none; 
+        vertical-align: middle; 
+        text-align: center; 
+    }
+
+    .tb-infor img {
+        margin-right: 0; /* No margin needed if centering everything */
+        max-width: 80px; /* Limits the width of the image */
+        height: auto; 
+        vertical-align: right; 
+    }
+    
+    </style>
 </head>
 <body>
     <header>
         <h1>
             <img src="MG Logo(White).png" alt="mgroup" class="logo">
-            WELCOME TO MGROUP!
+            WELCOME TO MGROUP !
         </h1>
         <nav>
             <ul>
-                <li><button class="nav-button" data-target="home">HOME</button></li>
+                <li class="li-button"><a href="index.php" class="link">HOME</a></li>
                 <li><button class="nav-button" data-target="about">ABOUT</button></li>
                 <li><button class="nav-button" data-target="floor-plan">FLOOR PLAN</button></li>
                 <li class="li-button"><a href="location.html" class="link" data-target="location">LOCATION</a></li>
@@ -232,9 +265,35 @@ $conn->close();
     <button id="goUpButton" class="go-up-button" title="Go to Top">⤴</button>
     <script src="index.js"></script>
 
+    <section class="infor">
+    <h2>For more information on MGROUP, please contact us at:</h2>
+        <table class="tb-infor">
+            <tbody>
+                <tr>
+                    <td><img src="kong.png" alt="Kong"></td>
+                    <td>010-228-2675 (KONG)</td>
+                    <td><a href="mailto:leeching2565@gmail.com">leeching2565@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td><img src="lydia.jpg" alt="Lydia"></td>
+                    <td>011-2175-0925 (LYDIA)</td>
+                    <td><a href="mailto:lydiasyazana9@gmail.com">lydiasyazana9@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td><img src="atul.jpg" alt="Atul"></td>
+                    <td>018-987-8300 (ATUL)</td> 
+                    <td><a href="mailto:atul@gmail.com">qurratulanisya210@gmail.com</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+
     <footer>
         <p>&copy; MGROUP PROPERTY. ALL RIGHTS RESERVED.</p>
     </footer>
+
 
     <!-- Modal Popup Structure -->
     <div id="modalPopup" class="modal">
@@ -246,110 +305,110 @@ $conn->close();
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-    const navButtons = document.querySelectorAll(".nav-button");
-    const modal = document.getElementById("modalPopup");
-    const popupText = document.getElementById("popupText");
-    const closeModal = document.querySelector(".close");
+        const navButtons = document.querySelectorAll(".nav-button");
+        const modal = document.getElementById("modalPopup");
+        const popupText = document.getElementById("popupText");
+        const closeModal = document.querySelector(".close");
 
-    navButtons.forEach(button => {
-            button.addEventListener("click", function() {
-                const target = button.getAttribute("data-target");
-                if (target === 'location') {
-                    // Skip the popup logic for the 'location' button
-                    return;
-                }
+        navButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const target = button.getAttribute("data-target");
+                    if (target === 'location') {
+                        // Skip the popup logic for the 'location' button
+                        return;
+                    }
 
-                switch (target) {
-                    case 'home':
-                        popupText.textContent = "Welcome to the Home Section!";
-                        break;
-                    case 'about':
-                        popupText.innerHTML = `
-                            <h2>About Melaka Old Street</h2>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Project Name</td>
-                                        <td>Melaka Old Street</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Location</td>
-                                        <td>Kota Laksamana, Melaka</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Type of Property</td>
-                                        <td>3 Storey Shop Office</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bath / Bed</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tenure</td>
-                                        <td>Leasehold</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Expired on</td>
-                                        <td>2106</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Land Size / Built Up</td>
-                                        <td>22' x 70'</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Selling / Rental Price</td>
-                                        <td>RM 1,980,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Condition</td>
-                                        <td>New</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Advantages</td>
-                                        <td>✅Heritage concept design <br>✅Unique historical experience<br>✅A contemporary commercial hub at heart of Melaka<br>✅Avenue corner pathways connected by lighting lines fit for Instagram</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        `;
-                        break;
-                    case 'floor-plan':
-                        popupText.innerHTML = `
-                            <h2>Floor Plan</h2>
-                            <img src="floorplan.png" alt="Floor Plan" style="width: 100%; height: auto;">
-                        `;
-                        break;
-                    case 'contact':
-                        popupText.innerHTML = `
-                            <h2>Contact us for more information!</h2>
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="contact-form" id="contactForm">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" required>
+                    switch (target) {
+                        case 'home':
+                            popupText.textContent = "Welcome to the Home Section!";
+                            break;
+                        case 'about':
+                            popupText.innerHTML = `
+                                <h2>About Melaka Old Street</h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Project Name</td>
+                                            <td>Melaka Old Street</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Location</td>
+                                            <td>Kota Laksamana, Melaka</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Type of Property</td>
+                                            <td>3 Storey Shop Office</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bath / Bed</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tenure</td>
+                                            <td>Leasehold</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Expired on</td>
+                                            <td>2106</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Land Size / Built Up</td>
+                                            <td>22' x 70'</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Selling / Rental Price</td>
+                                            <td>RM 1,980,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Condition</td>
+                                            <td>New</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Advantages</td>
+                                            <td>✅Heritage concept design <br>✅Unique historical experience<br>✅A contemporary commercial hub at heart of Melaka<br>✅Avenue corner pathways connected by lighting lines fit for Instagram</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            `;
+                            break;
+                        case 'floor-plan':
+                            popupText.innerHTML = `
+                                <h2>Floor Plan</h2>
+                                <img src="floorplan.png" alt="Floor Plan" style="width: 100%; height: auto;">
+                            `;
+                            break;
+                        case 'contact':
+                            popupText.innerHTML = `
+                                <h2>Contact us for more information!</h2>
+                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="contact-form" id="contactForm">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required>
 
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" required>
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
 
-                                <label for="message">Message:</label>
-                                <textarea id="message" name="message" rows="4" required></textarea>
+                                    <label for="message">Message:</label>
+                                    <textarea id="message" name="message" rows="4" required></textarea>
 
-                                <button type="submit">Send Message</button>
-                            </form>
-                        `;
-                        break;
-                }
-                modal.style.display = "block";
+                                    <button type="submit">Send Message</button>
+                                </form>
+                            `;
+                            break;
+                    }
+                    modal.style.display = "block";
+                });
             });
-        });
 
-        closeModal.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target === modal) {
+            closeModal.onclick = function() {
                 modal.style.display = "none";
             }
-        }
-    });
+
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
 
     </script>
 
