@@ -42,38 +42,448 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="index.css">
     <style>
-    .infor{
-        background-color: white;
+    /* General Reset for elements */
+    body, h1, h2, h3, p, ul, li {
+        margin: 0 auto;
+        padding: 0;
+    }
+
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f4f4;
+        text-align: center; 
+    }
+
+    /* Link Styling */
+    li.li-button {
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        padding: 10px 20px;
+        transform: translateY(0px);
+    }
+
+    .link:hover {
+        background-color: #ddd;
+        border-radius: 5px;
+        transform: scale(1.05); /* Scale up the link slightly on hover */
+        transition: background-color 0.3s, transform 0.3s; /* Added transform transition */
+    }
+
+    .link
+    {
+        color: white;
+        text-decoration:none;
+        transform: scale(0.95); /* Scale down the link slightly on active */
+    }
+
+    .li-button:hover
+    {
+        padding: 10px 20px;
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+
+
+
+    /* Header Styling */
+    header {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        padding: 15px;
+        height: auto;
+        width: 100%; /* Full-width header */
+
+    }
+
+    header h1 {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        font-size: 36px;
+        color: white;
+        font-weight: bold;
+        transform: translateY(25%);
+    }
+
+    header .logo {
+        width: 150px;
+        height: auto;
+        margin-right: 15px;
+    }
+
+    /* Modal Styling */
+    .modal {
+        display: none; 
+        position: fixed;
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%;
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; 
+        max-width: 500px; 
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Navigation Styling */
+    nav {
+        display: flex;
+        justify-content: right; 
+        transform: translateY(-80%);
+    }
+
+    nav ul {
+        list-style: none; /* Remove default list styling */
+        display: flex; /* Arrange list items in a row */
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0 5px; /* Add space between the buttons */
+    }
+
+    nav ul li button.nav-button {
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+    }
+
+    nav ul li button.nav-button:hover {
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+
+    /* Main Styling */
+    main {
+        padding: 30px;
+        text-align: center;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    h2 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    /* Form Styling */
+    form {
+        max-width: 600px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left; 
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    form input, form textarea, form button {
+        width: calc(100% - 22px);
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    form button {
+        background-color: #222;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+        background-color: #444;
+    }
+
+    /* Table Section Styling */
+    #table-section {
+        text-align: center;
+        padding: 30px;
+        background: #fff;
+        margin: 20px auto;
+        max-width: 1000px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left; /* Ensure table text is left-aligned */
+    }
+
+    th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #fafafa;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Map Section Styling */
+    .map-section {
+        position: relative;
+        width: 100%;
+        height: 100vh; 
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .map-section iframe {
+        width: 100%;
+        height: 80%;
+        border: 0;
+        box-sizing: border-box; 
+    }
+
+    /* Go Up Button Styling */
+    .go-up-button {
+        position: fixed;
+        bottom: 20px; /* Distance from the bottom of the page */
+        right: 20px; /* Distance from the right of the page */
+        background-color: #222;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0; /* Start as invisible */
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+    }
+
+    .go-up-button:hover {
+        background-color: #444;
+    }
+
+    .go-up-button.show {
+        opacity: 1; /* Make visible */
+    }
+
+    /* Carousel Styling */
+    .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto; /* Center the carousel without extra margins */
+        overflow: hidden;
+        padding: 0; /* Ensure no padding on the carousel */
+    }
+
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        padding: 0; /* Ensure no padding on carousel items */
+    }
+
+    .carousel-item img {
+        max-height: 60%;
+        max-width: 60%;
+        margin: 0 auto; 
+    }
+
+    .carousel-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        padding: 0;
+        margin-bottom: 150px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background-color: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .indicator.active {
+        background-color: #333;
+    }
+
+
+
+    /* Footer Styling */
+    footer {
+        background-color: #222;
+        color: #fff;
         text-align: center;
         padding: 15px 20px;
         position: relative;
         width: 100%;
         bottom: 0;
     }
-    .tb-infor {
-        width: 500px;
-        border-collapse: collapse; 
-        color: black;
-        margin: 0 auto; 
-        background-color: white;
-        text-align: center; 
+
+    /* Media Queries */
+    /* Media Queries for Mobile Devices */
+    @media (max-width: 768px) {
+        body {
+            font-size: 16px; /* Adjust font size for smaller screens */
+        }
+
+        header h1 {
+            font-size: 24px; /* Smaller header font size */
+            margin: 0; /* Remove margin for header */
+        }
+
+        header .logo {
+            width: 120px; /* Adjust logo size */
+        }
+
+        nav ul {
+            flex-direction: column; /* Stack navigation items vertically */
+            align-items: center; /* Center align navigation items */
+            display: none; /* Hide navigation initially */
+        }
+
+        nav ul.active {
+            display: flex; /* Show navigation when active */
+        }
+
+        .contact-form-container {
+            padding: 20px; /* Adjust padding for contact form container */
+        }
+
+        .carousel-item img {
+            max-height: 100%; /* Ensure images fit in the carousel */
+            max-width: 100%; /* Ensure images fit in the carousel */
+        }
+
+        .map-section iframe {
+            height: 300px; /* Reduce height for mobile screens */
+        }
+
+        .infor {
+            padding: 10px; /* Adjust padding for contact information section */
+        }
+
+        .tb-infor {
+            width: 100%; /* Make table full-width */
+            font-size: 14px; /* Adjust font size */
+        }
+
+        .tb-infor td, .tb-infor th {
+            padding: 8px; /* Adjust padding in table cells */
+        }
+
+        .go-up-button {
+            width: 40px; /* Smaller size for go up button */
+            height: 40px; /* Smaller size for go up button */
+            font-size: 20px; /* Smaller font size for button */
+        }
+
+        .go-up-button.show {
+            opacity: 1; /* Ensure button is visible */
+        }
     }
 
-    .tb-infor td, .tb-infor th {
-        padding: 10px; 
-        border: none; 
-        vertical-align: middle; 
-        text-align: center; 
-    }
+        .infor{
+            background-color: white;
+            text-align: center;
+            padding: 15px 20px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+        .tb-infor {
+            width: 500px;
+            border-collapse: collapse; 
+            color: black;
+            margin: 0 auto; 
+            background-color: white;
+            text-align: center; 
+        }
 
-    .tb-infor img {
-        margin-right: 0; /* No margin needed if centering everything */
-        max-width: 80px; /* Limits the width of the image */
-        height: auto; 
-        vertical-align: right; 
-    }
+        .tb-infor td, .tb-infor th {
+            padding: 10px; 
+            border: none; 
+            vertical-align: middle; 
+            text-align: center; 
+        }
+
+        .tb-infor img {
+            margin-right: 0; /* No margin needed if centering everything */
+            max-width: 80px; /* Limits the width of the image */
+            height: auto; 
+            vertical-align: right; 
+        }
     
     </style>
 </head>
