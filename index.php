@@ -392,65 +392,96 @@ $conn->close();
     }
 
     /* Media Queries */
-    /* Media Queries for Mobile Devices */
+   /* Media Queries for Mobile Devices */
     @media (max-width: 768px) {
-        body {
-            font-size: 16px; /* Adjust font size for smaller screens */
+        /* Header Adjustments */
+        header {
+            padding: 10px;
         }
 
         header h1 {
-            font-size: 24px; /* Smaller header font size */
-            margin: 0; /* Remove margin for header */
+            font-size: 28px;
+            justify-content: center; /* Center align on mobile */
+            transform: none;
         }
 
         header .logo {
-            width: 120px; /* Adjust logo size */
+            width: 120px;
+        }
+
+        /* Navigation Adjustments */
+        nav {
+            transform: none;
+            justify-content: center;
         }
 
         nav ul {
-            flex-direction: column; /* Stack navigation items vertically */
-            align-items: center; /* Center align navigation items */
-            display: none; /* Hide navigation initially */
+            flex-direction: column; /* Stack navigation links vertically */
         }
 
-        nav ul.active {
-            display: flex; /* Show navigation when active */
+        nav ul li {
+            margin: 5px 0; /* Adjust spacing between stacked items */
         }
 
-        .contact-form-container {
-            padding: 20px; /* Adjust padding for contact form container */
+        nav ul li button.nav-button {
+            padding: 10px 15px;
+            width: 100%; /* Full width buttons for better touch targets */
         }
 
+        /* Main Adjustments */
+        main {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px; /* Adjust font size for mobile */
+        }
+
+        h2 {
+            font-size: 20px; /* Adjust font size for mobile */
+        }
+
+        /* Form Adjustments */
+        form {
+            padding: 15px;
+        }
+
+        form input, form textarea, form button {
+            width: calc(100% - 20px); /* Adjust width for mobile */
+            padding: 10px;
+        }
+
+        /* Table Section Adjustments */
+        #table-section {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        table {
+            font-size: 14px; /* Smaller font for table on mobile */
+        }
+
+        /* Map Section Adjustments */
+        .map-section {
+            height: 50vh; /* Adjust height for mobile view */
+        }
+
+        /* Carousel Adjustments */
         .carousel-item img {
-            max-height: 100%; /* Ensure images fit in the carousel */
-            max-width: 100%; /* Ensure images fit in the carousel */
+            max-height: 40%; /* Adjust image size for mobile */
+            max-width: 80%;
         }
 
-        .map-section iframe {
-            height: 300px; /* Reduce height for mobile screens */
+        /* Footer Adjustments */
+        footer {
+            padding: 10px 15px;
         }
 
-        .infor {
-            padding: 10px; /* Adjust padding for contact information section */
-        }
-
-        .tb-infor {
-            width: 100%; /* Make table full-width */
-            font-size: 14px; /* Adjust font size */
-        }
-
-        .tb-infor td, .tb-infor th {
-            padding: 8px; /* Adjust padding in table cells */
-        }
-
+        /* Go Up Button Adjustments */
         .go-up-button {
-            width: 40px; /* Smaller size for go up button */
-            height: 40px; /* Smaller size for go up button */
-            font-size: 20px; /* Smaller font size for button */
-        }
-
-        .go-up-button.show {
-            opacity: 1; /* Ensure button is visible */
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
         }
     }
 
