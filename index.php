@@ -423,99 +423,81 @@ $conn->close();
         vertical-align: right; 
     }
 
-    /* Media Queries */
-   /* Media Queries for Mobile Devices */
-    @media (max-width: 768px) {
-        /* Header Adjustments */
-        header {
-            padding: 10px;
-        }
-
+    //* Media Queries for Tablets */
+    @media (min-width: 769px) and (max-width: 1024px) {
         header h1 {
-            font-size: 28px;
-            justify-content: center; /* Center align on mobile */
+            font-size: 32px; /* Slightly larger for better readability on tablets */
+            justify-content: center;
             transform: none;
         }
 
         header .logo {
-            width: 120px;
+            width: 150px; /* Slightly larger logo for tablets */
         }
 
-        /* Navigation Adjustments */
         nav {
             transform: none;
             justify-content: center;
         }
 
         nav ul {
-            flex-direction: column; /* Stack navigation links vertically */
+            flex-direction: row; /* Change to row for tablets */
         }
 
         nav ul li {
-            margin: 5px 0; /* Adjust spacing between stacked items */
+            margin: 0 10px; /* Adjust margin for spacing between items */
         }
 
         nav ul li button.nav-button {
-            padding: 10px 15px;
-            width: 100%; /* Full width buttons for better touch targets */
+            padding: 12px 20px; /* Slightly larger padding for better clickability */
         }
 
-        /* Main Adjustments */
         main {
-            padding: 20px;
+            padding: 30px; /* Increase padding for better spacing on tablets */
         }
 
-        h1 {
-            font-size: 24px; /* Adjust font size for mobile */
+        h1, h2 {
+            font-size: 28px; /* Increase font size for better readability */
         }
 
-        h2 {
-            font-size: 20px; /* Adjust font size for mobile */
-        }
-
-        /* Form Adjustments */
         form {
-            padding: 15px;
+            padding: 20px; /* Increase padding for better spacing */
         }
 
         form input, form textarea, form button {
-            width: calc(100% - 20px); /* Adjust width for mobile */
-            padding: 10px;
+            width: calc(100% - 20px);
+            padding: 12px; /* Increase padding for better input field size */
         }
 
-        /* Table Section Adjustments */
         #table-section {
-            padding: 20px;
+            padding: 25px; /* Increase padding */
             max-width: 100%;
         }
 
         table {
-            font-size: 14px; /* Smaller font for table on mobile */
+            font-size: 16px; /* Larger font size for better readability */
         }
 
-        /* Map Section Adjustments */
         .map-section {
-            height: 50vh; /* Adjust height for mobile view */
+            height: 60vh; /* Slightly larger map section */
         }
 
-        /* Carousel Adjustments */
         .carousel-item img {
-            max-height: 40%; /* Adjust image size for mobile */
-            max-width: 80%;
+            max-height: 50%; /* Increase max-height for better image visibility */
+            max-width: 90%; /* Increase max-width */
         }
 
-        /* Footer Adjustments */
         footer {
-            padding: 10px 15px;
+            padding: 15px 20px; /* Increase padding for better spacing */
         }
 
-        /* Go Up Button Adjustments */
         .go-up-button {
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
+            width: 50px; /* Slightly larger button */
+            height: 50px;
+            font-size: 24px;
         }
     }
+
 
 </style>
 </head>
