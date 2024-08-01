@@ -384,65 +384,77 @@
     }
 
     /* Media Queries for Tablets */
-    @media (max-width: 768px) {
-        /* Example: Header adjustments for mobile */
-        header {
-            padding: 10px;
+    @media (min-width: 769px) and (max-width: 1024px) {
+        header h1 {
+            font-size: 32px; /* Slightly larger for better readability on tablets */
+            justify-content: center;
+            transform: none;
         }
 
-        header h1 {
-            font-size: 24px; /* Smaller font size for mobile */
-            justify-content: center; /* Center align header text */
+        header .logo {
+            width: 150px; /* Slightly larger logo for tablets */
+        }
+
+        nav {
+            transform: none;
+            justify-content: center;
         }
 
         nav ul {
-            flex-direction: column; /* Stack navigation links vertically */
-            align-items: center;
+            flex-direction: row; /* Change to row for tablets */
         }
 
         nav ul li {
-            margin: 5px 0; /* Add margin between stacked links */
+            margin: 0 10px; /* Adjust margin for spacing between items */
         }
 
-        .logo {
-            width: 100px; /* Smaller logo for mobile */
+        nav ul li button.nav-button {
+            padding: 12px 20px; /* Slightly larger padding for better clickability */
         }
 
-        /* Example: Main content adjustments for mobile */
         main {
-            padding: 15px; /* Less padding on mobile */
+            padding: 30px; /* Increase padding for better spacing on tablets */
         }
 
-        .carousel-item img {
+        h1, h2 {
+            font-size: 28px; /* Increase font size for better readability */
+        }
+
+        form {
+            padding: 20px; /* Increase padding for better spacing */
+        }
+
+        form input, form textarea, form button {
+            width: calc(100% - 20px);
+            padding: 12px; /* Increase padding for better input field size */
+        }
+
+        #table-section {
+            padding: 25px; /* Increase padding */
             max-width: 100%;
-            max-height: auto;
         }
 
         table {
-            width: 100%; /* Full width on mobile */
+            font-size: 16px; /* Larger font size for better readability */
         }
 
-        th, td {
-            padding: 8px;
+        .map-section {
+            height: 60vh; /* Slightly larger map section */
         }
 
-        /* Example: Modal adjustments for mobile */
-        .modal-content {
-            width: 90%; /* Wider modal for mobile */
-            max-width: 95%; /* Maximum width */
+        .carousel-item img {
+            max-height: 40%; /* Increase max-height for better image visibility */
+            max-width: 30%; /* Increase max-width */
         }
 
-        /* Footer adjustments for mobile */
         footer {
-            padding: 10px; /* Smaller padding for footer on mobile */
-            font-size: 12px;
+            padding: 15px 20px; /* Increase padding for better spacing */
         }
 
-        /* Go Up Button adjustments for mobile */
         .go-up-button {
-            width: 40px; /* Smaller button */
-            height: 40px;
-            font-size: 20px;
+            width: 50px; /* Slightly larger button */
+            height: 50px;
+            font-size: 24px;
         }
     }
 
