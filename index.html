@@ -13,6 +13,7 @@
         padding: 0;
     }
 
+
     body {
         font-family: 'Roboto', sans-serif;
         line-height: 1.6;
@@ -383,7 +384,7 @@
         vertical-align: right; 
     }
 
-    /* Media Queries for Tablets */
+    //* Media Queries for Tablets */
     @media (min-width: 769px) and (max-width: 1024px) {
         header h1 {
             font-size: 32px; /* Slightly larger for better readability on tablets */
@@ -443,8 +444,8 @@
         }
 
         .carousel-item img {
-            max-height: 40%; /* Increase max-height for better image visibility */
-            max-width: 30%; /* Increase max-width */
+            max-height: 50%; /* Increase max-height for better image visibility */
+            max-width: 90%; /* Increase max-width */
         }
 
         footer {
@@ -455,6 +456,29 @@
             width: 50px; /* Slightly larger button */
             height: 50px;
             font-size: 24px;
+        }
+
+        .tb-infor {
+            width: 100px;
+            border-collapse: collapse; 
+            color: black;
+            margin: 0 auto; 
+            background-color: white;
+            text-align: center; 
+        }
+
+        .tb-infor td, .tb-infor th {
+            padding: 10px; 
+            border: none; 
+            vertical-align: middle; 
+            text-align: center; 
+        }
+
+        .tb-infor img {
+            margin-right: 0; /* No margin needed if centering everything */
+            max-width: 80px; /* Limits the width of the image */
+            height: auto; 
+            vertical-align: right; 
         }
     }
 
