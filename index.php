@@ -99,11 +99,8 @@ $conn->close();
         background-color: #222;
         color: #fff;
         text-align: center;
-        position: relative;
         padding: 15px;
-        height: auto;
-        width: 100%; /* Full-width header */
-
+        width: 100%;
     }
 
     header h1 {
