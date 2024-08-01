@@ -391,6 +391,38 @@ $conn->close();
         bottom: 0;
     }
 
+    .infor{
+        background-color: white;
+        text-align: center;
+        padding: 15px 20px;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .tb-infor {
+        width: 500px;
+        border-collapse: collapse; 
+        color: black;
+        margin: 0 auto; 
+        background-color: white;
+        text-align: center; 
+    }
+
+    .tb-infor td, .tb-infor th {
+        padding: 10px; 
+        border: none; 
+        vertical-align: middle; 
+        text-align: center; 
+    }
+
+    .tb-infor img {
+        margin-right: 0; /* No margin needed if centering everything */
+        max-width: 80px; /* Limits the width of the image */
+        height: auto; 
+        vertical-align: right; 
+    }
+
     /* Media Queries */
    /* Media Queries for Mobile Devices */
     @media (max-width: 768px) {
@@ -485,38 +517,7 @@ $conn->close();
         }
     }
 
-        .infor{
-            background-color: white;
-            text-align: center;
-            padding: 15px 20px;
-            position: relative;
-            width: 100%;
-            bottom: 0;
-        }
-        .tb-infor {
-            width: 500px;
-            border-collapse: collapse; 
-            color: black;
-            margin: 0 auto; 
-            background-color: white;
-            text-align: center; 
-        }
-
-        .tb-infor td, .tb-infor th {
-            padding: 10px; 
-            border: none; 
-            vertical-align: middle; 
-            text-align: center; 
-        }
-
-        .tb-infor img {
-            margin-right: 0; /* No margin needed if centering everything */
-            max-width: 80px; /* Limits the width of the image */
-            height: auto; 
-            vertical-align: right; 
-        }
-    
-    </style>
+</style>
 </head>
 <body>
     <header>
