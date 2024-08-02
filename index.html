@@ -387,6 +387,14 @@
     /* Media Queries for Tablets */
    /* Responsive Design */
     @media (min-width: 320px) and (max-width: 480px) {
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+            overflow-x: hidden; /* Prevents horizontal overflow */
+        }
+
         header {
             width: 320px;
         }
