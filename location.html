@@ -80,6 +80,25 @@
         background-color: #333;
     }
 
+    /* Back Button Styling */
+    .back-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        z-index: 1000; /* Ensure it is above other content */
+    }
+
+    .back-button:hover {
+        background-color: #555;
+    }
+
     @media (min-width: 320px) and (max-width: 480px) {
         h2{
             font-size: 25px;
@@ -105,6 +124,8 @@
     </style>
 </head>
 <body>
+    <button id="backButton" class="back-button">Back</button>
+
     <section class="map-section" id="3">
         <h2><b>Location (Online Real Time Address)</b></h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.888187809673!2d102.2313222!3d2.2002814999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1f1b87a9cd181%3A0x87ad4504f6303956!2s7%2C%20Jalan%20KLJ%207%2C%20Melaka!5e1!3m2!1szh-CN!2smy!4v1721979872629!5m2!1szh-CN!2smy"
@@ -225,9 +246,16 @@
                 window.scrollTo({ top: 0, behavior: "smooth" });
             });
         }
+        
+        // Back Button functionality
+        const backButton = document.getElementById("backButton");
+
+        if (backButton) {
+            backButton.addEventListener("click", function () {
+                window.history.back(); // Navigate back in history
+            });
+        }
     });
-
-
     </script>
 </body>
 </html>
