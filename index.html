@@ -7,8 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
+    html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+            overflow-x: hidden; /* Prevents horizontal overflow */
+    }
+
     /* General Reset for elements */
-    body, h1, h2, h3, p, ul, li {
+    h1, h2, h3, p, ul, li {
         margin: 0 auto;
         padding: 0;
     }
@@ -533,7 +541,6 @@
         </h1>
         <nav>
             <ul>
-                <li class="li-button"><a href="index.php" class="link">HOME</a></li>
                 <li><button class="nav-button" data-target="about">ABOUT</button></li>
                 <li><button class="nav-button" data-target="floor-plan">FLOOR PLAN</button></li>
                 <li class="li-button"><a href="location.html" class="link" data-target="location">LOCATION</a></li>
