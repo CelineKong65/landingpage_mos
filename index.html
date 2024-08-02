@@ -386,7 +386,7 @@
 
     /* Media Queries for Tablets */
    /* Responsive Design */
-    @media screen and (max-width: 480px) {
+    @media (min-width: 320px) and (max-width: 480px) {
         header {
             width: 480px;
         }
@@ -431,6 +431,7 @@
             display: block;
             margin: 0 auto;
         }
+
         nav {
             transform: none;
             justify-content: center;
@@ -443,6 +444,8 @@
         nav ul li {
             margin: 0 10px; /* Adjust margin for spacing between items */
         }
+
+        
 
         nav ul li button.nav-button {
             padding: 12px 20px; /* Slightly larger padding for better clickability */
