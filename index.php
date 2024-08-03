@@ -1,3 +1,39 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "mos";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Initialize message variable
+$message = "";
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and validate input
+    $name = $conn->real_escape_string(trim($_POST['name']));
+    $email = $conn->real_escape_string(trim($_POST['email']));
+    $user_message = $conn->real_escape_string(trim($_POST['message']));
+
+    // Insert data into the messages table
+    $sql = "INSERT INTO messages (user_name, user_email, user_message) VALUES ('$name', '$email', '$user_message')";
+
+    if ($conn->query($sql) === TRUE) {
+        $message = "Message sent successfully!";
+    } else {
+        $message = "Error: " . $conn->error;
+    }
+}
+
+$conn->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -715,6 +751,23 @@
 
     <br>
     <br>
+    <section class="contact-form-container" id="4">
+        <h2>Contact Us</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="contact-form" id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <?php if (!empty($message)) echo "<p>$message</p>"; ?>
+    </section>
+
     
 
     <button id="goUpButton" class="go-up-button" title="Go to Top">⤴</button>
@@ -832,24 +885,21 @@
                         case 'contact':
                             popupText.innerHTML = `
                                 <h2>Contact us for more information!</h2>
-                                <table class="tb-infor">
-                                <tbody>
-                                    <tr>
-                                        <td><img src="kong.png" alt="Kong"></td>
-                                        <td><a href="https://www.wasap.my/60102282675/">010-228-2675 (KONG)</a><br><a href="mailto:leeching2565@gmail.com">leeching2565@gmail.com</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="lydia.jpg" alt="Lydia"></td>
-                                        <td><a href="https://www.wasap.my/601121750925/">011-2175-0925 (LYDIA)</a><br><a href="mailto:lydiasyazana9@gmail.com">lydiasyazana9@gmail.com</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="atul.jpg" alt="Atul"></td>
-                                        <td><a href="https://www.wasap.my/60189878300/">018-987-8300 (ATUL)</a><br><a href="mailto:atul@gmail.com">qurratulanisya210@gmail.com</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="contact-form" id="contactForm">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
+
+                                    <label for="message">Message:</label>
+                                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                                    <button type="submit">Send Message</button>
+                                </form>
                             `;
                             break;
+
                     }
                     modal.style.display = "block";
                 });
